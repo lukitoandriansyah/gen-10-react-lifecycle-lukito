@@ -55,20 +55,29 @@ class LifeCycleClass extends React.Component {
             for (let daftarIsiKeranjang of this.state.isiKeranjang) {
                 hargaTotal = hargaTotal + daftarIsiKeranjang.hargaBarang
             }
-            this.setState({totalHarga:hargaTotal})
+            this.setState({totalHarga: hargaTotal})
         }
     }
 
     tambahKeKeranjang(alatMusikYangDipilih) {
         const isiKeranjangSekarang = [...this.state.isiKeranjang];
         isiKeranjangSekarang.push(alatMusikYangDipilih);
+        isiKeranjangSekarang.sort(function(a, b){
+            let x = a.namaBarang.toLowerCase();
+            let y = b.namaBarang.toLowerCase();
+            if (x<y) {return -1;}
+            if (x>y) {return 1;}
+            return 0
+        })
         this.setState({isiKeranjang: isiKeranjangSekarang});
+        console.log(isiKeranjangSekarang);
     }
 
     hapusDariDaftarKeranjang(alatMusikYangDipilih) {
         const isiKeranjangSekarang = [...this.state.isiKeranjang];
         isiKeranjangSekarang.splice(isiKeranjangSekarang.indexOf(alatMusikYangDipilih), 1);
         this.setState({isiKeranjang: isiKeranjangSekarang});
+        console.log(isiKeranjangSekarang);
     }
 
     render() {
@@ -79,10 +88,11 @@ class LifeCycleClass extends React.Component {
                 <ul>
                     {this.state.dataAlat.map((namaAlatMusik) => (
                             <li>
-                                {namaAlatMusik.namaBarang} | {namaAlatMusik.hargaBarang} | <button
-                                onClick={() => this.tambahKeKeranjang(namaAlatMusik)}>Tambah Ke
-                                Keranjang</button>
-
+                                {namaAlatMusik.namaBarang} | <span> </span>
+                                {namaAlatMusik.hargaBarang} | <span> </span>
+                                <button onClick={() => this.tambahKeKeranjang(namaAlatMusik)}>
+                                    Tambah Ke Keranjang
+                                </button>
                             </li>
                         )
                     )
@@ -93,13 +103,16 @@ class LifeCycleClass extends React.Component {
                     {
                         this.state.isiKeranjang.map((daftarIsiKeranjang) =>
                             (
+
                                 <li>
-                                    {daftarIsiKeranjang.namaBarang} | {daftarIsiKeranjang.hargaBarang} | <button
-                                    onClick={() => this.hapusDariDaftarKeranjang(daftarIsiKeranjang)}>
-                                    Hapus
-                                </button>
+                                    {daftarIsiKeranjang.namaBarang} | <span> </span>
+                                    {daftarIsiKeranjang.hargaBarang} | <span> </span>
+                                    <button onClick={() => this.hapusDariDaftarKeranjang(daftarIsiKeranjang)}>
+                                        Hapus
+                                    </button>
                                 </li>
-                            ))
+                            )
+                        )
                     }
                 </ul>
             </div>
