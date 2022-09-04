@@ -81,6 +81,40 @@ function LifeCycleFunction(){
 
     }, [isiKeranjang])
 
+    useEffect(()=>{
+        let itemGitar = 0;
+        let itemBass = 0;
+        let itemPiano = 0;
+        let itemDrum = 0;
+        let itemSexophone = 0;
+
+        for (let daftarIsiKeranjang of isiKeranjang) {
+            //hargaTotal = hargaTotal + daftarIsiKeranjang.hargaBarang
+            if (daftarIsiKeranjang.namaBarang === "gitar") {
+                itemGitar = itemGitar + 1
+            }
+            if (daftarIsiKeranjang.namaBarang === "bass") {
+                itemBass = itemBass + 1
+            }
+            if (daftarIsiKeranjang.namaBarang === "keyboard") {
+                itemPiano = itemPiano + 1
+            }
+            if (daftarIsiKeranjang.namaBarang === "drum") {
+                itemDrum = itemDrum + 1
+            }
+            if (daftarIsiKeranjang.namaBarang === "sexophone") {
+                itemSexophone = itemSexophone + 1
+            }
+        }
+
+        setJumlahItemGitar(itemGitar);
+        setJumlahItemBass(itemBass);
+        setJumlahItemDrum(itemDrum);
+        setJumlahItemPiano(itemPiano);
+        setJumlahItemSexophone(itemSexophone);
+
+    }, [isiKeranjang])
+
     return(
         <>
             <p>Total Harga: {totalHarga}</p>
@@ -108,6 +142,30 @@ function LifeCycleFunction(){
                     </li>
                 )}
             </ul>
+            <h4>Total Item</h4>
+            <ul>
+                <li>
+                    Total Item Bass {jumlahItemBass} | <span> </span>
+                    Harga Rp{jumlahItemBass * dataApi[1].hargaBarang}
+                </li>
+                <li>
+                    Total Item Drum {jumlahItemDrum} | <span> </span>
+                    Harga Rp{jumlahItemDrum * dataApi[3].hargaBarang}
+                </li>
+                <li>
+                    Total Item Gitar {jumlahItemGitar} | <span> </span>
+                    Harga Rp{jumlahItemGitar * dataApi[0].hargaBarang}
+                </li>
+                <li>
+                    Total Item Keyboard {jumlahItemPiano} | <span> </span>
+                    Harga Rp{jumlahItemPiano * dataApi[2].hargaBarang}
+                </li>
+                <li>
+                    Total Item Sexophone {jumlahItemSexophone} | <span> </span>
+                    Harga Rp{jumlahItemSexophone * dataApi[4].hargaBarang}
+                </li>
+            </ul>
+
         </>
     )
 }
