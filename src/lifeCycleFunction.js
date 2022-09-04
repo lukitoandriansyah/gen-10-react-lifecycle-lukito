@@ -125,7 +125,7 @@ function LifeCycleFunction() {
             <h4>Daftar Produk</h4>
             <ul>
                 {dataAlat.map((namaAlatMusik) => {
-                        if (namaAlatMusik.namaBarang === "gitar") {
+                        if (namaAlatMusik.namaBarang === "gitar" && namaAlatMusik.stokBarang - jumlahItemGitar > 0) {
                             return (
                                 <li>
                                     {namaAlatMusik.namaBarang} | <span> </span>
@@ -138,7 +138,20 @@ function LifeCycleFunction() {
                             )
                         }
 
-                        if (namaAlatMusik.namaBarang === "bass") {
+                        if (namaAlatMusik.namaBarang === "gitar" && namaAlatMusik.stokBarang - jumlahItemGitar === 0) {
+                            return (
+                                <li>
+                                    {namaAlatMusik.namaBarang} | <span> </span>
+                                    {namaAlatMusik.hargaBarang} | <span> </span>
+                                    Stok tersedia: {namaAlatMusik.stokBarang - jumlahItemGitar} | <span> </span>
+                                    <button>
+                                        Stok Habis
+                                    </button>
+                                </li>
+                            )
+                        }
+
+                        if (namaAlatMusik.namaBarang === "bass" && namaAlatMusik.stokBarang - jumlahItemBass > 0) {
                             return (
                                 <li>
                                     {namaAlatMusik.namaBarang} | <span> </span>
@@ -151,7 +164,20 @@ function LifeCycleFunction() {
                             )
                         }
 
-                        if (namaAlatMusik.namaBarang === "drum") {
+                        if (namaAlatMusik.namaBarang === "bass" && namaAlatMusik.stokBarang - jumlahItemBass === 0) {
+                            return (
+                                <li>
+                                    {namaAlatMusik.namaBarang} | <span> </span>
+                                    {namaAlatMusik.hargaBarang} | <span> </span>
+                                    Stok tersedia: {namaAlatMusik.stokBarang - jumlahItemBass} | <span> </span>
+                                    <button>
+                                        Stok Habis
+                                    </button>
+                                </li>
+                            )
+                        }
+
+                        if (namaAlatMusik.namaBarang === "drum" && namaAlatMusik.stokBarang - jumlahItemDrum > 0) {
                             return (
                                 <li>
                                     {namaAlatMusik.namaBarang} | <span> </span>
@@ -164,7 +190,20 @@ function LifeCycleFunction() {
                             )
                         }
 
-                        if (namaAlatMusik.namaBarang === "keyboard") {
+                        if (namaAlatMusik.namaBarang === "drum" && namaAlatMusik.stokBarang - jumlahItemDrum === 0) {
+                            return (
+                                <li>
+                                    {namaAlatMusik.namaBarang} | <span> </span>
+                                    {namaAlatMusik.hargaBarang} | <span> </span>
+                                    Stok tersedia: {namaAlatMusik.stokBarang - jumlahItemDrum} | <span> </span>
+                                    <button>
+                                        Stok Habis
+                                    </button>
+                                </li>
+                            )
+                        }
+
+                        if (namaAlatMusik.namaBarang === "keyboard" && namaAlatMusik.stokBarang - jumlahItemPiano > 0) {
                             return (
                                 <li>
                                     {namaAlatMusik.namaBarang} | <span> </span>
@@ -177,7 +216,20 @@ function LifeCycleFunction() {
                             )
                         }
 
-                        if (namaAlatMusik.namaBarang === "sexophone") {
+                        if (namaAlatMusik.namaBarang === "keyboard" && namaAlatMusik.stokBarang - jumlahItemPiano === 0) {
+                            return (
+                                <li>
+                                    {namaAlatMusik.namaBarang} | <span> </span>
+                                    {namaAlatMusik.hargaBarang} | <span> </span>
+                                    Stok tersedia: {namaAlatMusik.stokBarang - jumlahItemPiano} | <span> </span>
+                                    <button>
+                                        Stok Habis
+                                    </button>
+                                </li>
+                            )
+                        }
+
+                        if (namaAlatMusik.namaBarang === "sexophone" && namaAlatMusik.stokBarang - jumlahItemSexophone > 0) {
                             return (
                                 <li>
                                     {namaAlatMusik.namaBarang} | <span> </span>
@@ -189,6 +241,20 @@ function LifeCycleFunction() {
                                 </li>
                             )
                         }
+
+                        if (namaAlatMusik.namaBarang === "sexophone" && namaAlatMusik.stokBarang - jumlahItemSexophone === 0) {
+                            return (
+                                <li>
+                                    {namaAlatMusik.namaBarang} | <span> </span>
+                                    {namaAlatMusik.hargaBarang} | <span> </span>
+                                    Stok tersedia: {namaAlatMusik.stokBarang - jumlahItemSexophone} | <span> </span>
+                                    <button>
+                                        Stok Habis
+                                    </button>
+                                </li>
+                            )
+                        }
+
                     }
                 )}
 
