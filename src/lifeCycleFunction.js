@@ -1,5 +1,5 @@
 //Misal kita memiliki data API seperti berikut ini:
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const dataApi = [
     {
@@ -73,35 +73,11 @@ function LifeCycleFunction(){
 
     useEffect(()=>{
         let hargaTotal = 0;
-        let itemGitar = 0;
-        let itemBass = 0;
-        let itemPiano = 0;
-        let itemDrum = 0;
-        let itemSexophone = 0;
+
         for (let daftarIsiKeranjang of isiKeranjang) {
             hargaTotal = hargaTotal + daftarIsiKeranjang.hargaBarang
-            if (daftarIsiKeranjang.namaBarang === "gitar") {
-                itemGitar = itemGitar + 1
-            }
-            if (daftarIsiKeranjang.namaBarang === "bass") {
-                itemBass = itemBass + 1
-            }
-            if (daftarIsiKeranjang.namaBarang === "keyboard") {
-                itemPiano = itemPiano + 1
-            }
-            if (daftarIsiKeranjang.namaBarang === "drum") {
-                itemDrum = itemDrum + 1
-            }
-            if (daftarIsiKeranjang.namaBarang === "sexophone") {
-                itemSexophone = itemSexophone + 1
-            }
         }
         setTotalHarga(hargaTotal);
-        setJumlahItemGitar(itemGitar);
-        setJumlahItemBass(itemBass);
-        setJumlahItemDrum(itemDrum);
-        setJumlahItemPiano(itemPiano);
-        setJumlahItemSexophone(itemSexophone);
 
     }, [isiKeranjang])
 
@@ -126,8 +102,8 @@ function LifeCycleFunction(){
                     <li>
                         {daftarIsiKeranjang.namaBarang} | <span> </span>
                         {daftarIsiKeranjang.hargaBarang} | <span> </span>
-                        <button /*onClick={()=>tambahKeKeranjang(namaAlatMusik)}*/>
-                            + Keranjang
+                        <button onClick={()=>hapusDariDaftarKeranjang(daftarIsiKeranjang)}>
+                            Hapus Item
                         </button>
                     </li>
                 )}
