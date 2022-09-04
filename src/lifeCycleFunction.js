@@ -273,28 +273,49 @@ function LifeCycleFunction() {
             </ul>
             <h4>Total Item</h4>
             <ul>
-                <li>
-                    Total Item Bass: {jumlahItemBass} | <span> </span>
-                    Harga: Rp{jumlahItemBass * dataApi[1].hargaBarang}
-                </li>
-                <li>
-                    Total Item Drum: {jumlahItemDrum} | <span> </span>
-                    Harga: Rp{jumlahItemDrum * dataApi[3].hargaBarang}
-                </li>
-                <li>
-                    Total Item Gitar: {jumlahItemGitar} | <span> </span>
-                    Harga: Rp{jumlahItemGitar * dataApi[0].hargaBarang}
-                </li>
-                <li>
-                    Total Item Keyboard: {jumlahItemPiano} | <span> </span>
-                    Harga: Rp{jumlahItemPiano * dataApi[2].hargaBarang}
-                </li>
-                <li>
-                    Total Item: Sexophone {jumlahItemSexophone} | <span> </span>
-                    Harga: Rp{jumlahItemSexophone * dataApi[4].hargaBarang}
-                </li>
+                {dataAlat.map((namaItem) => {
+                    if (namaItem.namaBarang === "gitar") {
+                        return (
+                            <li>
+                                Total Item {namaItem.namaBarang}: {jumlahItemGitar} | <span> </span>
+                                Harga: Rp{jumlahItemGitar * namaItem.hargaBarang}
+                            </li>
+                        )
+                    }
+                    if (namaItem.namaBarang === "bass") {
+                        return (
+                            <li>
+                                Total Item {namaItem.namaBarang}: {jumlahItemBass} | <span> </span>
+                                Harga: Rp{jumlahItemBass * namaItem.hargaBarang}
+                            </li>
+                        )
+                    }
+                    if (namaItem.namaBarang === "drum") {
+                        return (
+                            <li>
+                                Total Item {namaItem.namaBarang}: {jumlahItemDrum} | <span> </span>
+                                Harga: Rp{jumlahItemDrum * namaItem.hargaBarang}
+                            </li>
+                        )
+                    }
+                    if (namaItem.namaBarang === "keyboard") {
+                        return (
+                            <li>
+                                Total Item {namaItem.namaBarang}: {jumlahItemPiano} | <span> </span>
+                                Harga: Rp{jumlahItemPiano * namaItem.hargaBarang}
+                            </li>
+                        )
+                    }
+                    if (namaItem.namaBarang === "sexophone") {
+                        return (
+                            <li>
+                                Total Item {namaItem.namaBarang}: {jumlahItemSexophone} | <span> </span>
+                                Harga: Rp{jumlahItemSexophone * namaItem.hargaBarang}
+                            </li>
+                        )
+                    }
+                })}
             </ul>
-
         </>
     )
 }
