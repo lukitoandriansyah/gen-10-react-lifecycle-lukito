@@ -5,31 +5,31 @@ const dataApi = [
     {
         namaBarang: "gitar",
         hargaBarang: 2500000,
-        stokBarang: 50
+        stokBarang: 5
 
     },
     {
         namaBarang: "bass",
         hargaBarang: 2000000,
-        stokBarang: 50
+        stokBarang: 5
 
     },
     {
         namaBarang: "keyboard",
         hargaBarang: 5000000,
-        stokBarang: 50
+        stokBarang: 5
 
     },
     {
         namaBarang: "drum",
         hargaBarang: 25000000,
-        stokBarang: 50
+        stokBarang: 5
 
     },
     {
         namaBarang: "sexophone",
         hargaBarang: 30000000,
-        stokBarang: 50
+        stokBarang: 5
 
     },
 ]
