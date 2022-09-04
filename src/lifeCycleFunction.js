@@ -121,7 +121,7 @@ function LifeCycleFunction() {
 
     return (
         <>
-            <p>Total Harga: {totalHarga}</p>
+            <p>Total Harga: Rp{totalHarga}</p>
             <h4>Daftar Produk</h4>
             <ul>
                 {dataAlat.map((namaAlatMusik) => {
